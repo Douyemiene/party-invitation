@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class of 2026 – Graduation Celebration</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Dancing+Script:wght@700&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:      #D6D3CD;
+      --card:    #EDEAE4;
+      --black:   #111111;
+      --dark:    #2A2A2A;
+      --mid:     #777777;
+      --rule:    #D0CCC4;
+      --gold:    #B8820A;
+      --gold-hi: #E8A800;
+    }
+
+    body {
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 52px 24px;
+      gap: 32px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* ── CARD ────────────────────────────────────────── */
+    .card {
+      width: 800px;
+      max-width: 100%;
+      background: var(--card);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow:
+        0 2px 8px rgba(0,0,0,0.07),
+        0 20px 60px rgba(0,0,0,0.13);
+      animation: rise 1s cubic-bezier(.22,1,.36,1) both;
+    }
+    .card:nth-child(2) { animation-delay: 0.14s; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+
+    /* ── BLACK FOOTER STRIP ──────────────────────────── */
+    .footer-strip {
+      background: var(--black);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 13px 40px;
+    }
+    .footer-strip p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+    .footer-strip .rsvp-block { text-align: right; }
+    .footer-strip .rsvp-lbl {
+      font-family: 'Cinzel', serif;
+      font-size: 7px;
+      letter-spacing: 4px;
+      color: var(--gold-hi);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .footer-strip .rsvp-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      color: #fff;
+    }
+
+
+    /* ════════════════════════════════════════════════
+       CARD 1 — INVITATION  (landscape two-col)
+    ════════════════════════════════════════════════ */
+
+    .invite-grid {
+      display: grid;
+      grid-template-columns: 310px 1fr;
+    }
+
+    /* LEFT — visual / title */
+    .invite-left {
+      border-right: 1px solid var(--rule);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .confetti-area {
+      height: 100px;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .confetti-area svg {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+
+    .arch-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: -8px;
+      flex-shrink: 0;
+    }
+
+    .title-block {
+      padding: 6px 20px 28px;
+      position: relative;
+      flex: 1;
+    }
+    .grad-word {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      font-weight: 900;
+      color: var(--black);
+      display: block;
+      line-height: 1;
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+    }
+    .party-word {
+      font-family: 'Dancing Script', cursive;
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--black);
+      display: block;
+      margin-top: -2px;
+      line-height: 1;
+    }
+    .float-cap {
+      position: absolute;
+      right: 16px;
+      bottom: 20px;
+      animation: wobble 6s ease-in-out infinite;
+    }
+    @keyframes wobble {
+      0%,100% { transform: rotate(12deg) translateY(0); }
+      50%      { transform: rotate(16deg) translateY(-5px); }
+    }
+
+    /* RIGHT — details */
+    .invite-right {
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .honor-label {
+      font-family: 'Cinzel', serif;
+      font-size: 8.5px;
+      letter-spacing: 4px;
+      color: var(--mid);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .class-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--black);
+      display: block;
+      margin-bottom: 16px;
+    }
+    .h-rule {
+      height: 1px;
+      background: linear-gradient(90deg, var(--rule), transparent);
+      margin-bottom: 16px;
+    }
+
+    .loc-label {
+      font-family: 'Cinzel', serif;
+      font-size: 7.5px;
+      letter-spacing: 3px;
+      color: var(--gold-hi);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .loc-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--dark);
+      display: block;
+    }
+    .loc-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--mid);
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .dress-pill {
+      display: inline-block;
+      border: 1px solid var(--rule);
+      border-radius: 40px;
+      padding: 5px 14px;
+      margin-bottom: 18px;
+      font-family: 'Cinzel', serif;
+      font-size: 7.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--dark);
+    }
+    .dress-pill span { color: var(--gold-hi); }
+
+    .dt-bar {
+      display: flex;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: auto;
+    }
+    .dt-cell {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+    }
+    .dt-cell + .dt-cell { border-left: 1px solid var(--rule); }
+    .dt-icon { color: var(--black); flex-shrink: 0; }
+    .dt-lbl {
+      font-family: 'Cinzel', serif;
+      font-size: 6.5px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--mid);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .dt-val {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--black);
+    }
+
+
+    /* ════════════════════════════════════════════════
+       CARD 2 — ORDER OF EVENTS  (landscape two-col)
+    ════════════════════════════════════════════════ */
+
+    .ev-grid {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+    }
+
+    /* LEFT — heading */
+    .ev-left {
+      border-right: 1px solid var(--rule);
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .ev-over {
+      font-family: 'Cinzel', serif;
+      font-size: 7.5px;
+      letter-spacing: 5px;
+      color: var(--mid);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .ev-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 900;
+      color: var(--black);
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+    .ev-script {
+      font-family: 'Dancing Script', cursive;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--gold-hi);
+      display: block;
+      margin-top: -4px;
+      line-height: 1;
+    }
+    .gold-rule {
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold-hi), transparent);
+      margin: 16px 0;
+    }
+    .ev-note {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 12.5px;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+
+    /* RIGHT — events two-column grid */
+    .ev-right {
+      padding: 28px 32px;
+    }
+    .ev-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .ev-row {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 0 12px;
+      padding: 11px 12px 11px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: flex-start;
+    }
+    .ev-2col > .ev-row:nth-child(odd)  { border-right: 1px solid var(--rule); padding-right: 20px; }
+    .ev-2col > .ev-row:nth-child(even) { padding-left: 20px; }
+    /* Remove bottom border on last two rows */
+    .ev-2col > .ev-row:nth-last-child(-n+2) { border-bottom: none; }
+
+    .ev-time {
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.3px;
+      text-align: right;
+      padding-top: 2px;
+    }
+    .ev-title {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--black);
+      letter-spacing: 0.3px;
+      margin-bottom: 2px;
+    }
+    .ev-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 12.5px;
+      color: var(--mid);
+      line-height: 1.35;
+    }
+
+    @media print {
+      body { background: white; padding: 0; gap: 0; }
+      .card { box-shadow: none; border-radius: 0; page-break-after: always; width: 100%; }
+      * { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     CARD 1 — INVITATION
+══════════════════════════════════════════ -->
+<div class="card">
+
+
+  <div class="invite-grid">
+
+    <!-- LEFT: visual -->
+    <div class="invite-left">
+
+      <div class="confetti-area">
+        <svg viewBox="0 0 310 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="14"  y="8"  width="13" height="6"  rx="1" fill="#E8A800" transform="rotate(-26 14 8)"/>
+          <rect x="46"  y="4"  width="10" height="5"  rx="1" fill="#F5C842" transform="rotate(18 46 4)"/>
+          <rect x="82"  y="12" width="12" height="5"  rx="1" fill="#C98C00" transform="rotate(-40 82 12)"/>
+          <rect x="118" y="6"  width="9"  height="4"  rx="1" fill="#E8A800" transform="rotate(32 118 6)"/>
+          <rect x="152" y="3"  width="14" height="6"  rx="1" fill="#F5C842" transform="rotate(-12 152 3)"/>
+          <rect x="188" y="14" width="10" height="5"  rx="1" fill="#C98C00" transform="rotate(44 188 14)"/>
+          <rect x="222" y="7"  width="12" height="5"  rx="1" fill="#E8A800" transform="rotate(-22 222 7)"/>
+          <rect x="258" y="10" width="9"  height="4"  rx="1" fill="#F5C842" transform="rotate(28 258 10)"/>
+          <rect x="30"  y="28" width="9"  height="4"  rx="1" fill="#2D6A4F" transform="rotate(20 30 28)"/>
+          <rect x="108" y="32" width="8"  height="4"  rx="1" fill="#0A6634" transform="rotate(-18 108 32)"/>
+          <rect x="196" y="28" width="10" height="4"  rx="1" fill="#2D6A4F" transform="rotate(28 196 28)"/>
+          <rect x="268" y="30" width="8"  height="4"  rx="1" fill="#0A6634" transform="rotate(-24 268 30)"/>
+          <rect x="18"  y="48" width="8"  height="4"  rx="1" fill="#E8A800" transform="rotate(22 18 48)"/>
+          <rect x="72"  y="52" width="11" height="5"  rx="1" fill="#F5C842" transform="rotate(-34 72 52)"/>
+          <rect x="148" y="46" width="9"  height="4"  rx="1" fill="#C98C00" transform="rotate(14 148 46)"/>
+          <rect x="236" y="54" width="10" height="4"  rx="1" fill="#E8A800" transform="rotate(-28 236 54)"/>
+          <rect x="0" y="62" width="290" height="38" fill="url(#cf)"/>
+          <defs>
+            <linearGradient id="cf" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#EDEAE4" stop-opacity="0"/>
+              <stop offset="100%" stop-color="#EDEAE4" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <!-- Arch text -->
+      <div class="arch-wrap">
+        <svg width="240" height="38" viewBox="0 0 240 38">
+          <defs><path id="ap" d="M 6,34 Q 120,2 234,34"/></defs>
+          <text font-family="Cinzel, serif" font-size="10.5" letter-spacing="4.5"
+                fill="#666" text-anchor="middle">
+            <textPath href="#ap" startOffset="50%">WE INVITE YOU</textPath>
+          </text>
+        </svg>
+      </div>
+
+      <!-- Title -->
+      <div class="title-block">
+        <span class="grad-word">GRADUATION</span>
+        <span class="party-word">Party</span>
+
+        <!-- Floating cap (bottom-right of left panel) -->
+        <div class="float-cap">
+          <svg width="70" height="54" viewBox="0 0 70 54" fill="none">
+            <polygon points="35,3 66,16 35,29 4,16" fill="#111"/>
+            <rect x="24" y="17" width="22" height="15" rx="1.5" fill="#111"/>
+            <line x1="66" y1="16" x2="66" y2="36" stroke="#B8820A" stroke-width="2.5" stroke-linecap="round"/>
+            <rect x="62" y="36" width="8" height="6" rx="1.5" fill="#B8820A"/>
+            <line x1="63" y1="42" x2="60" y2="53" stroke="#B8820A" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="66" y1="42" x2="66" y2="53" stroke="#B8820A" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="69" y1="42" x2="72" y2="53" stroke="#B8820A" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div><!-- /.invite-left -->
+
+    <!-- RIGHT: details -->
+    <div class="invite-right">
+      <span class="honor-label">In Honor of</span>
+      <span class="class-name">The Class of 2026</span>
+      <div class="h-rule"></div>
+
+      <span class="loc-label">Location</span>
+      <span class="loc-val">Nyagatovu, Remera</span>
+      <span class="loc-sub">No. 6, KG 254 St</span>
+
+      <div class="dress-pill">
+        Dress Code &nbsp;·&nbsp; <span>Party Wear</span>
+      </div>
+
+      <div class="dt-bar">
+        <div class="dt-cell">
+          <svg class="dt-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+               stroke="#111" stroke-width="1.4">
+            <rect x="1.5" y="3" width="17" height="15" rx="2"/>
+            <line x1="6"  y1="1" x2="6"  y2="5"/>
+            <line x1="14" y1="1" x2="14" y2="5"/>
+            <line x1="1.5" y1="8" x2="18.5" y2="8"/>
+          </svg>
+          <div>
+            <span class="dt-lbl">Date</span>
+            <span class="dt-val">Friday</span>
+          </div>
+        </div>
+        <div class="dt-cell">
+          <svg class="dt-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+               stroke="#111" stroke-width="1.4">
+            <circle cx="10" cy="10" r="8.5"/>
+            <line x1="10" y1="5.5" x2="10" y2="10"/>
+            <line x1="10" y1="10" x2="14"  y2="13"/>
+          </svg>
+          <div>
+            <span class="dt-lbl">Time</span>
+            <span class="dt-val">5:00 PM – Late</span>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.invite-right -->
+
+  </div><!-- /.invite-grid -->
+
+  <div class="footer-strip">
+    <div class="rsvp-block">
+      <span class="rsvp-lbl">RSVP</span>
+      <span class="rsvp-val">Brandone 0794968280 · Victor 0795002043</span>
+    </div>
+  </div>
+
+</div><!-- /.card invite -->
+
+
+<!-- ══════════════════════════════════════════
+     CARD 2 — ORDER OF EVENTS
+══════════════════════════════════════════ -->
+<div class="card" style="display:none">
+
+
+  <div class="ev-grid">
+
+    <!-- LEFT: heading -->
+    <div class="ev-left">
+      <span class="ev-over">Class of 2026  ·  Graduation Party</span>
+      <div class="ev-heading">ORDER OF</div>
+      <span class="ev-script">Events</span>
+      <div class="gold-rule"></div>
+      <p class="ev-note">
+        Nyagatovu, Remera<br>
+        No. 6, KG 254 St &nbsp;·&nbsp; 5:00 PM
+      </p>
+    </div>
+
+    <!-- RIGHT: 2-col events grid -->
+    <div class="ev-right">
+      <div class="ev-2col">
+
+        <div class="ev-row">
+          <span class="ev-time">5:00 PM</span>
+          <div>
+            <p class="ev-title">Arrival &amp; Reception</p>
+            <p class="ev-desc">Welcome drinks &amp; mingling</p>
+          </div>
+        </div>
+
+        <div class="ev-row">
+          <span class="ev-time">5:30 PM</span>
+          <div>
+            <p class="ev-title">Welcome Address</p>
+            <p class="ev-desc">Remarks from host &amp; family</p>
+          </div>
+        </div>
+
+        <div class="ev-row">
+          <span class="ev-time">5:45 PM</span>
+          <div>
+            <p class="ev-title">Opening Prayer</p>
+            <p class="ev-desc">Giving thanks for this milestone</p>
+          </div>
+        </div>
+
+        <div class="ev-row">
+          <span class="ev-time">6:00 PM</span>
+          <div>
+            <p class="ev-title">Dinner is Served</p>
+            <p class="ev-desc">Jollof, fufu, egusi &amp; more</p>
+          </div>
+        </div>
+
+        <div class="ev-row">
+          <span class="ev-time">7:30 PM</span>
+          <div>
+            <p class="ev-title">Speeches &amp; Tributes</p>
+            <p class="ev-desc">Words of honour from loved ones</p>
+          </div>
+        </div>
+
+        <div class="ev-row">
+          <span class="ev-time">8:15 PM</span>
+          <div>
+            <p class="ev-title">Cake Cutting</p>
+            <p class="ev-desc">Marking the moment with dessert</p>
+          </div>
+        </div>
+
+        <div class="ev-row">
+          <span class="ev-time">8:45 PM</span>
+          <div>
+            <p class="ev-title">Music &amp; Dancing</p>
+            <p class="ev-desc">Afrobeats, Highlife — floor is open!</p>
+          </div>
+        </div>
+
+        <div class="ev-row">
+          <span class="ev-time">Late</span>
+          <div>
+            <p class="ev-title">Closing Prayer &amp; Farewell</p>
+            <p class="ev-desc">Blessings, photos &amp; safe travels</p>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /.ev-right -->
+
+  </div><!-- /.ev-grid -->
+
+  <div class="footer-strip">
+    <p>Dress Code: Party Wear</p>
+    <div class="rsvp-block">
+      <span class="rsvp-lbl">RSVP</span>
+      <span class="rsvp-val">Brandone 0794968280 · Victor 0795002043</span>
+    </div>
+  </div>
+
+</div><!-- /.card events -->
+
+</body>
+</html>
